@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
@@ -28,7 +29,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//Не разобрался как сделать отступ слева для заголовка
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,17 +43,47 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.all(16),
+        //Не разобрался как сделать Column на всю ширину
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            BlueContainer(),
+            BlueContainer(),
+            BlueContainer(),
+            BlueContainer(),
+          ],
         ),
+      ),
     );
   }
 }
 
-class BlueRow extends StatelessWidget {
-  const BlueRow({Key? key}) : super(key: key);
+
+//Здесь хотел сделать виджет для синего прямоугольника и передавать в конструктор название пункта
+//Но не получилось настроить инициализатор
+// class BlueContainer extends StatelessWidget {
+//
+//   const BlueContainer({Key? key, String title = ""}) : super(key: key);
+//
+//   final cTitle = this.title;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
+
+
+class BlueContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.blue,
+      height: 48,
+      width: 343,
+    );
   }
 }
+
 
