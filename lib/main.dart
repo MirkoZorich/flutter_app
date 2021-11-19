@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
-  debugPaintSizeEnabled = true;
   runApp(const MyApp());
 }
 
@@ -17,12 +15,6 @@ class MyApp extends StatelessWidget {
       title: 'Приложение',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // brightness: Brightness.light,
-        // textTheme: TextTheme(
-        //   caption: TextStyle(
-        //     color: Colors.black
-        //   ),
-        // ),
       ),
       home: MyHomePage(),
     );
@@ -42,15 +34,15 @@ class MyHomePage extends StatelessWidget {
             fontWeight: FontWeight.bold),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
-        //Не разобрался как сделать Column на всю ширину
+        width: double.infinity,
+        padding: EdgeInsets.only(top: 22, bottom: 16, left: 16, right: 16),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            BlueContainer(),
-            BlueContainer(),
-            BlueContainer(),
-            BlueContainer(),
+            BlueContainer(title: '4 квадрата'),
+            BlueContainer(title: 'Цветной список'),
+            BlueContainer(title: 'Codelab'),
+            BlueContainer(title: 'Асинхронный запрос'),
           ],
         ),
       ),
@@ -58,32 +50,45 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-
-//Здесь хотел сделать виджет для синего прямоугольника и передавать в конструктор название пункта
-//Но не получилось настроить инициализатор
-// class BlueContainer extends StatelessWidget {
-//
-//   const BlueContainer({Key? key, String title = ""}) : super(key: key);
-//
-//   final cTitle = this.title;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-
-
 class BlueContainer extends StatelessWidget {
+  final String title;
+
+  BlueContainer({Key? key, this.title = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       height: 48,
-      width: 343,
+      width: double.infinity,
+      margin: EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.only(left: 21),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+        color: Colors.blue,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Roboto',
+                color: Colors.black,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+          RotatedBox(
+            quarterTurns: 1,
+            child: IconButton(
+              icon: Icon(
+                IconData(57504, fontFamily: 'MaterialIcons'),
+              ),
+              onPressed: null,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
-
-
