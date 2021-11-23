@@ -93,7 +93,11 @@ class _PageState extends State<Page> {
                 semanticLabel: 'Some text',
               ),
               onPressed: () => _openPage(page),
+<<<<<<< HEAD
             )
+=======
+            ),
+>>>>>>> 885ea1b (Правка события кнопки)
           ),
         ],
       ),
