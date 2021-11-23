@@ -89,7 +89,7 @@ class _PageState extends State<Page> {
               icon: Icon(
                 IconData(57504, fontFamily: 'MaterialIcons'),
               ),
-              onPressed: _openPage(page),
+              onPressed: () => _openPage(page),
             ),
           ),
         ],
