@@ -119,7 +119,7 @@ class FourSquarePage extends StatefulWidget {
 class _FourSquarePage extends State<FourSquarePage> {
 
   final Random _random = Random();
-  Color _randomColor = Color(0xFFFFFFFF);
+  Color _randomColor = Colors.grey;
 
   void _setRandomColor() {
     setState(() {
