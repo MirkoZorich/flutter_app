@@ -79,14 +79,17 @@ class BlueContainer extends StatelessWidget {
             ),
           ),
           RotatedBox(
-            quarterTurns: 1,
+            quarterTurns: 2,
             child: IconButton(
               icon: Icon(
-                IconData(57504, fontFamily: 'MaterialIcons'),
-              ),
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 24.0,
+                  semanticLabel: 'Some text',
+                ),
               onPressed: null,
+              ),
             ),
-          ),
         ],
       ),
     );
