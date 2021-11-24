@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'page_4square.dart';
+import 'page_color_list.dart';
+import 'page_codelab.dart';
+import 'page_async_query.dart';
 
 void main() {
   runApp(const MyApp());
@@ -93,14 +97,14 @@ class _PageState extends State<Page> {
                 semanticLabel: 'Some text',
               ),
               onPressed: () => _openPage(page),
-            )
+            ),
           ),
         ],
       ),
     );
   }
 
-  _openPage(Widget page) {
+  void _openPage(Widget page) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => page),
@@ -108,58 +112,3 @@ class _PageState extends State<Page> {
   }
 }
 
-class FourSquarePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('4 квадрата'),
-      ),
-      body: Container(
-          child: Text('4 квадрата')
-      ),
-    );
-  }
-}
-
-class ColorListPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Цветной список'),
-      ),
-      body: Container(
-          child: Text('Цветной список')
-      ),
-    );
-  }
-}
-
-class CodelabPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Кодлаб'),
-      ),
-      body: Container(
-          child: Text('Кодлаб')
-      ),
-    );
-  }
-}
-
-class AsyncQueryPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Асинк'),
-      ),
-      body: Container(
-          child: Text('Асинк')
-      ),
-    );
-  }
-}
